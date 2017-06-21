@@ -29,7 +29,7 @@ app.post('/list', function(req, res){
   res.redirect('/list');
 });
 
-app.get("/list/:id", function(){
+app.get("/complete/:id", function(req, res){
   todoList.items[req.params.id -1].complete = true;
   res.redirect('/list');
 });
