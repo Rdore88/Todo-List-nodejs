@@ -24,7 +24,7 @@ app.get('/list', function(req, res){
 });
 
 app.post('/list', function(req, res){
-  todoList.push(req.body.item);
+  todoList.items.push({"item": req.body.item, "complete": false});
   res.redirect('/list');
 });
 
