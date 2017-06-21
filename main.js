@@ -14,8 +14,8 @@ app.use(validator());
 
 todoList = {
   "items": [
-    {"item": "Wash Car", "complete": true},
-    {"item": "Walk Dog", "complete": false}
+    {"id": 1, "item": "Wash Car", "complete": true},
+    {"id": 2, "item": "Walk Dog", "complete": false}
   ]
 };
 
@@ -24,7 +24,13 @@ app.get('/list', function(req, res){
 });
 
 app.post('/list', function(req, res){
-  todoList.items.push({"item": req.body.item, "complete": false});
+  let i = todoList.items.length + 1;
+  todoList.items.push({"id": i, "item": req.body.item, "complete": false});
+  res.redirect('/list');
+});
+
+app.get("/list/:id", function(){
+  todoList.items[req.params.id -1].complete = true;
   res.redirect('/list');
 });
 
