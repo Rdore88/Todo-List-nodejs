@@ -9,5 +9,15 @@ app.set('views', './public/views');
 app.set('view engine', 'mustache');
 
 app.use(bodyParser());
-app.express.static('public');
+app.use(express.static('public'));
 app.use(validator());
+
+app.get('/signin', function(req, res){
+  res.render("signin");
+});
+
+
+
+app.listen(3000, function(){
+  console.log("up and running");
+})
