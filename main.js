@@ -12,10 +12,10 @@ app.use(bodyParser());
 app.use(express.static('public'));
 app.use(validator());
 
-todoList = [];
+todoList = ["Laundry"];
 
 app.get('/list', function(req, res){
-  res.render("list");
+  res.render("list", {'listOfItems': todoList});
 });
 
 app.post('/list', function(req, res){
