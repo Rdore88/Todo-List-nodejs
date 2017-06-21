@@ -12,12 +12,15 @@ app.use(bodyParser());
 app.use(express.static('public'));
 app.use(validator());
 
-app.get('/signin', function(req, res){
-  res.render("signin");
+todoList = [];
+
+app.get('/list', function(req, res){
+  res.render("list");
 });
 
-app.post('/signin', function(req, res){
-  res.send(req.body);
+app.post('/list', function(req, res){
+  todoList.push(req.body.item);
+  res.redirect('/list');
 });
 
 
