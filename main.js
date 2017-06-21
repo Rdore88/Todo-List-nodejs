@@ -16,6 +16,10 @@ app.get('/signin', function(req, res){
   res.render("signin");
 });
 
+app.post('/signin', function(req, res){
+  res.send(req.body);
+});
+
 
 
 app.listen(3000, function(){
